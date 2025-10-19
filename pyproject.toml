@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "densitymap"
+version = "0.1.0"
+authors = [
+    { name = "paulantier", email = "" },
+]
+description = "A Python library for density map calculations"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+python.version = "3.12"
+dependencies = [
+    "numpy>=1.20",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/paulantier/densitymap"
+"Documentation" = "https://paulantier.github.io/densitymap"
+"Bug Tracker" = "https://github.com/paulantier/densitymap/issues"
+
+[project.optional-dependencies]
+dev = [
+    # Testing
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    # Code quality
+    "black>=23.0",
+    "isort>=5.0",
+    "mypy>=1.0",
+    "ruff>=0.1.0",
+    # Documentation
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.0.0",
+    "mkdocstrings[python]>=0.23.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311', 'py312', 'py313', 'py314']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+ignore_missing_imports = true
